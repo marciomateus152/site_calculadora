@@ -1,0 +1,123 @@
+:root {
+    --cor-destaque: #f7931b;
+    --cor-texto: #1a1a1a;
+    --fundo-vidro-claro: rgba(255, 255, 255, 0.4);
+    --fundo-vidro-medio: rgba(255, 255, 255, 0.25);
+    --fundo-vidro-escuro: rgba(255, 255, 255, 0.15);
+    --cor-borda: rgba(255, 255, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--cor-texto);
+}
+
+.calculadora-container {
+    width: 100%;
+    max-width: 360px;
+    padding: 25px;
+    border-radius: 20px;
+    
+    background: var(--fundo-vidro-medio);
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.visor {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--fundo-vidro-escuro);
+    border: 1px solid var(--cor-borda);
+    border-radius: 15px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--cor-texto);
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    aspect-ratio: 1 / 1;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    
+    background: var(--fundo-vidro-claro);
+    color: var(--cor-texto);
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.especial {
+    background: var(--fundo-vidro-escuro);
+    font-weight: 400;
+}
+.btn.especial:hover {
+    background: var(--fundo-vidro-claro);
+}
+
+.btn.operador,
+.btn.igual {
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    font-weight: 500;
+    border: none;
+}
+.btn.operador:hover,
+.btn.igual:hover {
+    background-color: #e08417;
+}
+
+.btn.zero {
+    grid-column: span 2;
+    aspect-ratio: auto;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding-left: 28px;
+}
